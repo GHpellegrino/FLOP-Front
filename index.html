@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>F.L.O.P - accueil</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/paymentfont.min.css">
+  
+  <script src="https://js.stripe.com/v3/"></script>
+  <script type="text/javascript" src="./js/script.js"></script>
+</head>
+
+
+
+<body>
+  <form action="//httpbin.org/post" method="POST">
+    <input type="hidden" name="token" />
+    <div class="group">
+     <label>
+        <span>Challenge à faire</span>
+        <input id="challenge" class="field" placeholder="Finir le marathon de Paris" />
+      </label>
+       <label>
+        <span>avant le</span>
+        <input id="deadline" class="field" placeholder="31/12/2021" />
+      </label>
+       <label>
+        <span>contre la somme de</span>
+        <input id="montant" class="field" placeholder="100€" />
+      </label>
+      </div>
+      <div class="group">
+     <label>
+        <span>email du challenger</span>
+        <input id="email" class="field" placeholder="mathieu.pellegrino@flop.com" />
+      </label>
+       <label>
+        <span>email du valideur</span>
+        <input id="approbateur_email" class="field" placeholder="david.poulain@flop.com" />
+      </label>
+      </div>
+    <div class="group">
+     <label>
+        <span>Nom sur la carte</span>
+        <input id="name" class="field" placeholder="Mathieu Pellegrino" />
+      </label>
+      <label>
+        <span>Numéro de carte</span>
+        <div id="card-number-element" class="field"></div>
+        <span class="brand"><i class="pf pf-credit-card" id="brand-icon"></i></span>
+      </label>
+      <label>
+        <span>Date d'expiration</span>
+        <div id="card-expiry-element" class="field"></div>
+      </label>
+      
+      <label>
+        <span>CVC</span>
+        <div id="card-cvc-element" class="field"></div>
+      </label>
+    </div>
+    <button type="submit">Lancer le défi !</button>
+    <div class="outcome">
+      <div class="error"></div>
+      <div class="success">
+        Success! Your Stripe token is <span class="token"></span>
+      </div>
+    </div>
+  </form>
+</body>
