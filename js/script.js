@@ -44,9 +44,9 @@ function setOutcome(result) {
     successElement.classList.add('visible');
 
     // In a real integration, you'd submit the form with the token to your backend server
-    //var form = document.querySelector('form');
-    //form.querySelector('input[name="token"]').setAttribute('value', result.token.id);
-    //form.submit();
+    var form = document.querySelector('form');
+    form.querySelector('input[name="token"]').setAttribute('value', result.token.id);
+    form.submit();
   } else if (result.error) {
     errorElement.textContent = result.error.message;
     errorElement.classList.add('visible');
@@ -88,7 +88,11 @@ cardNumberElement.on('change', function(event) {
 document.querySelector('form').addEventListener('submit', function(e) {
   e.preventDefault();
   var options = {
-    address_zip: document.getElementById('postal-code').value,
+    challenge: document.getElementById('challenge').value,
+    deadline: document.getElementById('deadline').value,
+    montant: document.getElementById('montant').value,
+    email: document.getElementById('email').value,
+    approbateur_email: document.getElementById('approbateur_email').value,
   };
   stripe.createToken(cardNumberElement, options).then(setOutcome);
 });
